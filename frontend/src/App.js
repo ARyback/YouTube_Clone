@@ -32,6 +32,14 @@ function App() {
       .then((response) => setVideos(response.data.items));
   }
 
+  async function getVideoById() {
+
+  }
+
+  async function getRelatedVideos() {
+    
+  }
+
   return (
     <div>
       <button onClick={() => getVideos()}>Click for videos</button>
