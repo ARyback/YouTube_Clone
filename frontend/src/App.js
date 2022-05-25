@@ -1,5 +1,5 @@
 // General Imports
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useHref } from "react-router-dom";
 import "./App.css";
 import { API_KEY_1 } from "./API_KEY";
 import React, { useState } from "react";
@@ -24,6 +24,9 @@ function App() {
   //Search related to find id
   //Needs id and search
   const [videos, setVideos] = useState(null);
+  const [videoById, setVideoById] = useState(null);
+  const [relatedVideos, setrelatedVideos] = useState();
+
   async function getVideos() {
     await axios
       .get(
@@ -33,11 +36,14 @@ function App() {
   }
 
   async function getVideoById() {
+    await axios
+      .get(
 
+      ).then(response) => setVideoById
   }
 
   async function getRelatedVideos() {
-    
+
   }
 
   return (
