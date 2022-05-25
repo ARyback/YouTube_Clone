@@ -13,7 +13,7 @@ from django.shortcuts import get_object_or_404
 def get_all_comments_by_video_id(request, video_id):
     comments = Comment.objects.filter(video_id=video_id)
     serializer = CommentSerializer(comments, many=True)
-    return Response(serializer.data)
+    return Response(serializer.data, status=status.HTTP_201_CREATED)
 # @api_view(['GET'])
 # @permission_classes([AllowAny])
 # def get_all_comments_by_video_id(request):
