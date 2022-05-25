@@ -18,6 +18,10 @@ import PrivateRoute from "./utils/PrivateRoute";
 import axios from "axios";
 
 function App() {
+  //Search: what we did below
+  //Find by id: 39:10 Test in postman find a video by id
+  //Search related to find id
+  //Needs id and search
   const [videos, setVideos] = useState(null);
   async function getVideos() {
     await axios
