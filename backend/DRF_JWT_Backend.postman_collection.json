@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "d4409d57-7119-4339-bfae-1f3a18bc6341",
+		"_postman_id": "6fc10feb-93ef-49c3-91dd-57e666fbb3f6",
 		"name": "DRF_JWT_Backend",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20044510"
 	},
 	"item": [
 		{
@@ -216,6 +217,91 @@
 							"path": [
 								"api",
 								"cars",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "YouTube Clone",
+			"item": [
+				{
+					"name": "YouTube API",
+					"item": [
+						{
+							"name": "YouTube Search",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get comments by video_id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/comments/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"comments",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST comment (protected)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU0MjIxNDUyLCJpYXQiOjE2NTMzNTc0NTIsImp0aSI6ImQ4YmI5NTBjNGJjYzQ3YTg5YzEwOTY0NTE1OGEwYTlmIiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhZGFtciIsImZpcnN0X25hbWUiOiIifQ.1g3w28haPyuZaMuJYOgrB8gO1y9zHEXzg2RhxjyBfDo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"video_id\": \"s1t2a3r4\",\r\n    \"text\": \"This video was great! But could be better\",\r\n    \"likes\": 0,\r\n    \"dislikes\": 0,\r\n    \"user\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/comments/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"comments",
 								""
 							]
 						}
