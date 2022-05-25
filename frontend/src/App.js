@@ -23,9 +23,10 @@ function App() {
   //Find by id: Test in postman find a video by id
   //Search related to find id
   //Needs id and search
+  //Go through 
   const [videos, setVideos] = useState(null);
   const [videoById, setVideoById] = useState(null);
-  const [relatedVideos, setrelatedVideos] = useState();
+  const [relatedVideos, setRelatedVideos] = useState();
 
   async function getVideos() {
     await axios
@@ -38,17 +39,24 @@ function App() {
   async function getVideoById() {
     await axios
       .get(
-
-      ).then(response) => setVideoById
+        `https://www.googleapis.com/youtube/v3/search?q=snowboarding&key=${API_KEY_1}&part=snippet`
+      )
+      .then((response) => setVideoById(response.data.items));
   }
 
   async function getRelatedVideos() {
-
+    await axios
+      .get(
+        `https://www.googleapis.com/youtube/v3/search?q=snowboarding&key=${API_KEY_1}&part=snippet`
+      )
+      .then((response) => setRelatedVideos(response.data.items));
   }
 
   return (
     <div>
-      <button onClick={() => getVideos()}>Click for videos</button>
+      <button onClick={() => getVideos()}>Click to get videos</button>
+      <button onClick={() => getVideoById()}>Click to get videos by id</button>
+      <button onClick={() => getRelatedVideos()}>Click to get related videos</button>
       <div>
         {videos && <iframe
           id="ytplayer"
