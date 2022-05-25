@@ -243,11 +243,33 @@
 				},
 				{
 					"name": "Get comments by video_id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU0MjIyMTE0LCJpYXQiOjE2NTMzNTgxMTQsImp0aSI6ImFlNmM0ZWRmMjlhOTQxMTlhNzJjNjhlNzg1MzUwYjlkIiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhZGFtciIsImZpcnN0X25hbWUiOiIifQ.VsIsrR4r5HHGxXiwz9SLvtXGWb_s96OXI2lBTit2RVk",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/comments/",
+							"raw": "http://127.0.0.1:8000/api/comments/s1t2a3r4/",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -259,6 +281,7 @@
 							"path": [
 								"api",
 								"comments",
+								"s1t2a3r4",
 								""
 							]
 						}
@@ -282,7 +305,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"video_id\": \"s1t2a3r4\",\r\n    \"text\": \"This video was great! But could be better\",\r\n    \"likes\": 0,\r\n    \"dislikes\": 0,\r\n    \"user\": 1\r\n}",
+							"raw": "{\r\n    \"video_id\": \"w5a6r7s8\",\r\n    \"text\": \"This video was great! But could be better. So much better. On the other hand it was awful\",\r\n    \"likes\": 0,\r\n    \"dislikes\": 0,\r\n    \"user\": 1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
