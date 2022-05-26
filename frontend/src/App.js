@@ -43,7 +43,7 @@ function App() {
   async function getVideoById() {
     await axios
       .get(
-        `https://www.googleapis.com/youtube/v3/search?q=snowboarding&key=${API_KEY_1}&part=snippet`
+        `https://www.googleapis.com/youtube/v3/videos?key=AIzaSyCGevXFAna3PguGM_CMNVNHSwsmS_QhOi4&part=snippet&id=UGdif-dwu-8&type=video`
       )
       .then((response) => setVideoById(response.data.items));
   }
@@ -51,7 +51,7 @@ function App() {
   async function getRelatedVideos() {
     await axios
       .get(
-        `https://www.googleapis.com/youtube/v3/search?videoId=t705_V-RDcQ&type=video&key=AIzaSyCGevXFAna3PguGM_CMNVNHSwsmS_QhOi4`
+        `https://www.googleapis.com/youtube/v3/search?relatedToVideoId=t705_V-RDcQ&type=video&key=${API_KEY_1}&safeSearch=strict&maxResults=10&part=snippet`
       )
       .then((response) => setRelatedVideos(response.data.items));
   }
@@ -64,6 +64,7 @@ function App() {
       <button onClick={() => getVideoById()}>Click to get videos by id</button>
       <button onClick={() => getRelatedVideos()}>Click to get related videos</button>
       <div>
+        <h1>{videos[0].snippet.title}</h1>
         {videos && (
           <iframe
             id="ytplayer"
@@ -82,7 +83,7 @@ function App() {
             type="text/html"
             width="640"
             height="360"
-            src={`https://www.youtube.com/embed/${videoById[0].id.videoId}?autoplay=1&origin=http://example.com`}
+            src={`https://www.youtube.com/embed/${videoById[0].id}?autoplay=1&origin=http://example.com`}
             frameborder="0"
           ></iframe>
         )}
