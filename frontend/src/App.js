@@ -18,15 +18,18 @@ import PrivateRoute from "./utils/PrivateRoute";
 import axios from "axios";
 
 function App() {
-  //39:10 
-  //Search: what we did below
-  //Find by id: Test in postman find a video by id
+  //39:10
+  //0. Search by video_id
+  //1. Test in postman find a video by id.
+  //Per my discussion with Pascal, I am trying to develop a function getVideoById which will generate in Postman a video by id.
+  //Per Pascal, my hint is that search might change along with the query but API_KEY_1 and part=snippet will remain.
+  //2. Find related videos by id. Needs id of video and then do a search.
   //Search related to find id
   //Needs id and search
-  //Go through 
+  //Go through
   const [videos, setVideos] = useState(null);
   const [videoById, setVideoById] = useState(null);
-  const [relatedVideos, setRelatedVideos] = useState();
+  const [relatedVideos, setRelatedVideos] = useState(null);
 
   async function getVideos() {
     await axios
@@ -47,25 +50,52 @@ function App() {
   async function getRelatedVideos() {
     await axios
       .get(
-        `https://www.googleapis.com/youtube/v3/search?q=snowboarding&key=${API_KEY_1}&part=snippet`
+        `https://www.googleapis.com/youtube/v3/search?videoId=t705_V-RDcQ&type=video&key=AIzaSyCGevXFAna3PguGM_CMNVNHSwsmS_QhOi4`
       )
       .then((response) => setRelatedVideos(response.data.items));
   }
 
   return (
     <div>
+      {/* 30:19 */}
       <button onClick={() => getVideos()}>Click to get videos</button>
       <button onClick={() => getVideoById()}>Click to get videos by id</button>
       <button onClick={() => getRelatedVideos()}>Click to get related videos</button>
       <div>
-        {videos && <iframe
-          id="ytplayer"
-          type="text/html"
-          width="640"
-          height="360"
-          src={`https://www.youtube.com/embed/${videos[0].id.videoId}?autoplay=1&origin=http://example.com`}
-          frameborder="0"
-        ></iframe>}
+        {videos && (
+          <iframe
+            id="ytplayer"
+            type="text/html"
+            width="640"
+            height="360"
+            src={`https://www.youtube.com/embed/${videos[0].id.videoId}?autoplay=1&origin=http://example.com`}
+            frameborder="0"
+          ></iframe>
+        )}
+      </div>
+      <div>
+        {videoById && (
+          <iframe
+            id="ytplayer"
+            type="text/html"
+            width="640"
+            height="360"
+            src={`https://www.youtube.com/embed/${videoById[0].id.videoId}?autoplay=1&origin=http://example.com`}
+            frameborder="0"
+          ></iframe>
+        )}
+      </div>
+      <div>
+        {relatedVideos && (
+          <iframe
+            id="ytplayer"
+            type="text/html"
+            width="640"
+            height="360"
+            src={`https://www.youtube.com/embed/${relatedVideos[0].id.videoId}?autoplay=1&origin=http://example.com`}
+            frameborder="0"
+          ></iframe>
+        )}
       </div>
       {/* <Navbar />
       <Routes>
