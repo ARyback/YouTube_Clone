@@ -16,6 +16,7 @@ import Footer from "./components/Footer/Footer";
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
 import axios from "axios";
+import SearchPage from "./pages/SearchPage/SearchPage";
 
 function App() {
   //39:10
@@ -58,6 +59,7 @@ function App() {
   return (
     <div>
       {/* 30:19 */}
+      <SearchPage />
       <button onClick={() => getVideos()}>Click to get videos</button>
       <button onClick={() => getVideoById()}>Click to get videos by id</button>
       <button onClick={() => getRelatedVideos()}>Click to get related videos</button>
