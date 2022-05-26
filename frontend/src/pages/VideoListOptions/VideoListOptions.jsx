@@ -1,10 +1,11 @@
 import React from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import useCustomForm from '../../hooks/useCustomForm';
 
-const SearchResults = (props) => {
+const VideoListOptions = (props) => {
     return ( <div>hello world</div> );
 }
  
-export default SearchResults;
+export default VideoListOptions;
