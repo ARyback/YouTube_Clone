@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SearchBar = (props) => {
-    return ( <div>Hello World</div> );
+    return ( <input name="" value={props.userInput} onChange={(e)=>props.handleChange(e)}/>);
 }
  
 export default SearchBar;
