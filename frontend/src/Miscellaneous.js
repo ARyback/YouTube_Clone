@@ -114,5 +114,58 @@ function App() {
       </div>
     );
 }
+
+<SearchBar userInput={userInput} setUserInput={setUserInput} handleChange={handleChange}/>
+<button onClick={() => getVideos()}>Click to get videos</button>
+  {videos && (
+    <iframe
+      id="ytplayer"
+      type="text/html"
+      width="640"
+      height="360"
+      src={`https://www.youtube.com/embed/${videos[0].id.videoId}?autoplay=1&origin=http://example.com`}
+      frameborder="0"
+    ></iframe>
+  )} */}
+  {/* {videos && (
+    <iframe
+      id="ytplayer"
+      type="text/html"
+      width="640"
+      height="360"
+      src={`https://www.youtube.com/embed/${videos[1].id.videoId}?autoplay=1&origin=http://example.com`}
+      frameborder="0"
+    ></iframe>
+  )}
+  {videos && (
+    <iframe
+      id="ytplayer"
+      type="text/html"
+      width="640"
+      height="360"
+      src={`https://www.youtube.com/embed/${videos[2].id.videoId}?autoplay=1&origin=http://example.com`}
+      frameborder="0"
+    ></iframe>
+  )}
+  {videos && (
+    <iframe
+      id="ytplayer"
+      type="text/html"
+      width="640"
+      height="360"
+      src={`https://www.youtube.com/embed/${videos[3].id.videoId}?autoplay=1&origin=http://example.com`}
+      frameborder="0"
+    ></iframe>
+  )}
+  {videos && (
+    <iframe
+      id="ytplayer"
+      type="text/html"
+      width="640"
+      height="360"
+      src={`https://www.youtube.com/embed/${videos[4].id.videoId}?autoplay=1&origin=http://example.com`}
+      frameborder="0"
+    ></iframe>
+  )} */}
     
-export default App;
+export default Miscellaneous;
